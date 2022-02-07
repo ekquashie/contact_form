@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import 'mixins';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+  background: lightblue;
+}
+
+.wrapper {
+  width: 80%;
+  background: white;
+  border-radius: 10px;
+
+  header {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+  }
+
+  form {
+    margin: 35px 30px;
+
+    .dbl-field {
+      width: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+
+      .field {
+        height: 50px;
+        width: calc(100% / 2 - 13px);
+        position: relative;
+
+        input {
+          @include input-text-style;
+
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+      }
+    }
+    .message {
+      position: relative;
+
+      i {
+        top: 30px;
+        font-size: 20px;
+      }
+
+      textarea {
+        @include input-text-style;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 15px 20px 0 48px;
+
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+    }
+    i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      font-size: 17px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: lightgray;
+    }
+
+    .button-area {
+      margin: 25px 0;
+      display: flex;
+      align-items: center;
+
+      button {
+        font-size: 18px;
+        border: none;
+        padding: 13px 25px;
+        background-color: lightblue;
+        color: white;
+      }
+
+      span {
+        color: lightblue;
+        margin-left: 30px;
+        display: none;
+      }
+    }
+  }
+
+  @media(max-width: 600px) {
+    header {
+      text-align: center;
+    }
+    form {
+
+      .dbl-field {
+        flex-direction: column;
+
+        .field {
+          width: 100%;
+        }
+      }
+
+      .button-area {
+        flex-direction: column;
+
+        button {
+          width: 100%;
+        }
+        span {
+          text-align: center;
+          margin: 20px 0;
+        }
+      }
+      .message {
+
+        textarea {
+          resize: none;
+        }
+      }
+    }
+  }
+}
